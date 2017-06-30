@@ -5,11 +5,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.IndexedColors;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.*;
 
 
 class ExcelParser {
@@ -33,8 +29,8 @@ class ExcelParser {
         Sheet sheet = wb.getSheetAt(0);
         for (Row row : sheet) {
             for (Cell cell : row) {
-                int cellType = cell.getCellType();
-                if (cellType == Cell.CELL_TYPE_STRING) {
+                CellType cellType = cell.getCellTypeEnum();
+                if (cellType == CellType.STRING) {
                     coffee = cell.getStringCellValue();
                     if ((!map.containsKey(coffee)) || (exclusions.containsKey(coffee))) {
                         map.put(coffee, 0);
@@ -49,7 +45,7 @@ class ExcelParser {
 
     private static void changeCellColor(Cell cell) {
         CellStyle style = wb.createCellStyle();
-        style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
         style.setFillForegroundColor(IndexedColors.YELLOW.getIndex());
         cell.setCellStyle(style);
     }
