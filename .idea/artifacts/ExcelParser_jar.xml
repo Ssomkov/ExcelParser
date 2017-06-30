@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ExcelParser:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ExcelParser_jar</output-path>
+    <root id="archive" name="ExcelParser.jar">
+      <element id="module-output" name="ExcelParser" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/poi/poi/3.16/poi-3.16.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.10/commons-codec-1.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
